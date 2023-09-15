@@ -1,21 +1,18 @@
-import React, {useState} from "react";
+import React from "react";
 import {Button, List} from "antd";
-import axios from "axios";
+import {handleGetQuote, $quotesStore} from "../../models/quotes/init";
+import {useStore} from "effector-react";
+
+const quotesUrl: string = "https://api.kanye.rest";
 
 export const Quotes: React.FC = () => {
-    const [quotes, setQuotes] = useState<string[]>([]);
-
-    const handleGetQuote = (): void => {
-        axios.get('https://api.kanye.rest/')
-            .then(({data}) =>
-                setQuotes(prev => [data.quote, ...prev]))
-    }
+    const quotesStore = useStore($quotesStore)
 
     return (
         <List
             size="small"
-            header={<Button onClick={handleGetQuote}>Get new quote</Button>}
-            dataSource={quotes}
+            header={<Button onClick={() => handleGetQuote(quotesUrl)}>Get new quote</Button>}
+            dataSource={quotesStore}
             renderItem={(item) => <List.Item>{item}</List.Item>}
         />
     )
