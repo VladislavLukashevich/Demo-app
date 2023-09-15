@@ -1,0 +1,24 @@
+$gap: 10px;
+$mg-top: 10px;
+
+.calculator-wrapper {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .operands {
+    display: flex;
+    gap: $gap;
+  }
+
+  .actions {
+    display: flex;
+    margin-top: $mg-top;
+    gap: $gap;
+  }
+
+  .result {
+    margin-top: $mg-top;
+  }
+}
