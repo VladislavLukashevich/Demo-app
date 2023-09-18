@@ -13,5 +13,11 @@ export const menuItems: MenuProps["items"] = [
             <NavLink to={"/quotes"}>Quotes</NavLink>
         ),
         key: 'quotes',
+    },
+    {
+        label: (
+            <NavLink to={"/map"}>Map</NavLink>
+        ),
+        key: 'map',
     }
 ]
