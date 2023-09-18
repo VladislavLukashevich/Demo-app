@@ -16,7 +16,6 @@ forward({
 
 export const $quotesStore = createStore<string[]>([])
     .on(handleGetQuote.doneData, (state, newQuote) => {
-        console.log(newQuote)
         return [newQuote, ...state]
     });
 
